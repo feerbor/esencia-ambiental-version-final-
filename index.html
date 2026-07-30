@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Esencia Ambiental | Aromas para cada espacio</title>
+
+  <meta
+    name="description"
+    content="Esencia Ambiental ofrece soluciones demostrativas de aromatización para auto, hogar, oficina y eventos."
+  />
+
+  <style>
+    /* =========================================================
+       ESTILOS GENERALES
+       ========================================================= */
+
+    :root {
+      --primary: #315c52;
+      --primary-dark: #23463e;
+      --accent: #d7b98e;
+      --background: #f7f5f0;
+      --surface: #ffffff;
+      --text: #26312e;
+      --muted: #6b7672;
+      --border: #e4e1da;
+      --success: #e5f3ec;
+      --success-text: #245c45;
+      --shadow: 0 10px 30px rgba(38, 49, 46, 0.08);
+      --radius: 18px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(90%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 42px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin-bottom: 12px;
+      color: var(--primary-dark);
+    }
+
+    .section-header p {
+      color: var(--muted);
+    }
+
+    /* =========================================================
+       ENCABEZADO
+       ========================================================= */
+
+    header {
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* =========================================================
+       HERO / BIENVENIDA
+       ========================================================= */
+
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(215, 185, 142, 0.35), transparent 35%),
+        linear-gradient(135deg, #f7f5f0 0%, #edf2ef 100%);
+    }
+
+    .hero-content {
+      max-width: 760px;
+      padding: 90px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: #e4ece9;
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 8vw, 5.5rem);
+      line-height: 1.02;
+      color: var(--primary-dark);
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      max-width: 620px;
+      font-size: 1.12rem;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 22px;
+      background: var(--primary);
+      color: white;
+      font-weight: 700;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* =========================================================
+       PRODUCTOS
+       ========================================================= */
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 260px;
+      padding: 26px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 38px rgba(38, 49, 46, 0.12);
+    }
+
+    .product-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 28px;
+      border-radius: 14px;
+      background: #edf2ef;
+      font-size: 1.6rem;
+    }
+
+    .product-category {
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .product-card h3 {
+      margin-bottom: 20px;
+      font-size: 1.25rem;
+      color: var(--primary-dark);
+    }
+
+    .product-card .button {
+      margin-top: auto;
+      width: 100%;
+    }
+
+    /* =========================================================
+       VIDEO
+       ========================================================= */
+
+    .video-section {
+      background: #e9efec;
+    }
+
+    .video-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #111;
+      box-shadow: var(--shadow);
+    }
+
+    #youtube-player {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* =========================================================
+       FORMULARIO DE COTIZACIÓN
+       ========================================================= */
+
+    .quote-wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 38px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    input,
+    select {
+      width: 100%;
+      min-height: 48px;
+      padding: 11px 13px;
+      border: 1px solid #cfd6d2;
+      border-radius: 10px;
+      background: white;
+      color: var(--text);
+      outline: none;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(49, 92, 82, 0.12);
+    }
+
+    .submit-button {
+      width: 100%;
+      margin-top: 6px;
+      min-height: 52px;
+    }
+
+    .confirmation {
+      display: none;
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 10px;
+      background: var(--success);
+      color: var(--success-text);
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
+    footer {
+      padding: 30px 0;
+      background: var(--primary-dark);
+      color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 900px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 16px 0;
+      }
+
+      .nav-links {
+        gap: 14px;
+        font-size: 0.9rem;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 70px 0;
+      }
+
+      .section {
+        padding: 60px 0;
+      }
+
+      .products-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.full {
+        grid-column: auto;
+      }
+
+      .quote-wrapper {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       ENCABEZADO Y NAVEGACIÓN
+       ======================================================= -->
+
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#inicio">Esencia Ambiental</a>
+
+      <nav aria-label="Navegación principal">
+        <ul class="nav-links">
+          <li><a href="#productos">Productos</a></li>
+          <li><a href="#video">Video</a></li>
+          <li><a href="#cotizacion">Cotización</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- =====================================================
+         HERO / BIENVENIDA
+         ===================================================== -->
+
+    <section class="hero" id="inicio">
+      <div class="container">
+        <div class="hero-content">
+          <span class="eyebrow">Aromas que transforman espacios</span>
+
+          <h1>Haz memorable cada ambiente.</h1>
+
+          <p>
+            Descubre experiencias aromáticas pensadas para tu auto,
+            hogar, oficina o próximo evento.
+          </p>
+
+          <a href="#productos" class="button">Conocer productos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         PRODUCTOS
+         Cada tarjeta incluye data-product-name y
+         data-product-category para utilizar esos datos
+         en Google Analytics.
+         ===================================================== -->
+
+    <section class="section" id="productos">
+      <div class="container">
+
+        <div class="section-header">
+          <h2>Productos</h2>
+          <p>
+            Encuentra una solución aromática para cada momento y espacio.
+          </p>
+        </div>
+
+        <div class="products-grid">
+
+          <article
+            class="product-card"
+            data-product-name="Aroma Drive"
+            data-product-category="auto"
+          >
+            <div class="product-icon" aria-hidden="true">🚗</div>
+
+            <p class="product-category">Auto</p>
+            <h3>Aroma Drive</h3>
+
+            <button class="button interest-button" type="button">
+              Me interesa
+            </button>
+          </article>
+
+          <article
+            class="product-card"
+            data-product-name="Esencia Home"
+            data-product-category="hogar"
+          >
+            <div class="product-icon" aria-hidden="true">🏡</div>
+
+            <p class="product-category">Hogar</p>
+            <h3>Esencia Home</h3>
+
+            <button class="button interest-button" type="button">
+              Me interesa
+            </button>
+          </article>
+
+          <article
+            class="product-card"
+            data-product-name="Office Balance"
+            data-product-category="oficina"
+          >
+            <div class="product-icon" aria-hidden="true">💼</div>
+
+            <p class="product-category">Oficina</p>
+            <h3>Office Balance</h3>
+
+            <button class="button interest-button" type="button">
+              Me interesa
+            </button>
+          </article>
+
+          <article
+            class="product-card"
+            data-product-name="Event Signature"
+            data-product-category="eventos"
+          >
+            <div class="product-icon" aria-hidden="true">✨</div>
+
+            <p class="product-category">Eventos</p>
+            <h3>Event Signature</h3>
+
+            <button class="button interest-button" type="button">
+              Me interesa
+            </button>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         VIDEO
+         El reproductor se crea desde JavaScript utilizando
+         la YouTube IFrame Player API.
+         ===================================================== -->
+
+    <section class="section video-section" id="video">
+      <div class="container">
+
+        <div class="section-header">
+          <h2>Descubre la experiencia</h2>
+          <p>
+            Conoce cómo un aroma puede transformar la percepción
+            de un espacio.
+          </p>
+        </div>
+
+        <div class="video-wrapper">
+          <div id="youtube-player"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================
+         COTIZACIÓN
+         El formulario funciona únicamente como demostración
+         y no envía información a ningún servidor.
+         ===================================================== -->
+
+    <section class="section" id="cotizacion">
+      <div class="container">
+
+        <div class="section-header">
+          <h2>Solicita una cotización</h2>
+          <p>
+            Cuéntanos algunos detalles de tu evento y te mostraremos
+            una confirmación de tu solicitud.
+          </p>
+        </div>
+
+        <div class="quote-wrapper">
+
+          <form id="quote-form">
+
+            <div class="form-grid">
+
+              <div class="form-group">
+                <label for="event-type">Tipo de evento</label>
+
+                <select id="event-type" name="event_type" required>
+                  <option value="">Selecciona una opción</option>
+                  <option value="boda">Boda</option>
+                  <option value="corporativo">Evento corporativo</option>
+                  <option value="social">Evento social</option>
+                  <option value="exposicion">Exposición o feria</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="attendees">Número de asistentes</label>
+
+                <select id="attendees" name="attendee_range" required>
+                  <option value="">Selecciona un rango</option>
+                  <option value="1-50">1 a 50</option>
+                  <option value="51-100">51 a 100</option>
+                  <option value="101-250">101 a 250</option>
+                  <option value="251-500">251 a 500</option>
+                  <option value="500+">Más de 500</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="city">Ciudad</label>
+
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  placeholder="Ej. Ciudad de México"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="event-date">Fecha</label>
+
+                <input
+                  type="date"
+                  id="event-date"
+                  name="event_date"
+                  required
+                />
+              </div>
+
+              <div class="form-group full">
+                <button
+                  class="button submit-button"
+                  type="submit"
+                >
+                  Solicitar cotización
+                </button>
+              </div>
+
+            </div>
+
+          </form>
+
+          <div
+            id="confirmation-message"
+            class="confirmation"
+            role="status"
+            aria-live="polite"
+          >
+            ¡Gracias! Tu solicitud de cotización fue registrada
+            correctamente en esta demostración.
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
+  <footer>
+    <div class="container">
+      © 2026 Esencia Ambiental · Sitio demostrativo
+    </div>
+  </footer>
+
+
+  <script>
+    /* =========================================================
+       CONFIGURACIÓN GENERAL
+       ========================================================= */
+
+    /*
+     * =========================================================
+     * GOOGLE ANALYTICS 4
+     * =========================================================
+     */
+
+    // ============================================================
+    // REEMPLAZAR con el ID real de GA4
+    // ============================================================
+    const MEASUREMENT_ID = 'G-XXXXXXXXXX';
+
+
+    /*
+     * ID del video que se utilizará en el reproductor de YouTube.
+     */
+
+    const VIDEO_ID = rFICDbXREL4&t=657s // REEMPLAZAR con el ID de tu video
+
+
+    /* =========================================================
+       CARGAR GOOGLE ANALYTICS 4 CON EL ID DE LA CONSTANTE
+       ========================================================= */
+
+    /*
+     * Se crea el script de gtag.js dinámicamente para que el ID
+     * de medición exista solamente en la constante anterior.
+     */
+
+    const gaScript = document.createElement('script');
+
+    gaScript.async = true;
+    gaScript.src =
+      'https://www.googletagmanager.com/gtag/js?id=' +
+      encodeURIComponent(MEASUREMENT_ID);
+
+    document.head.appendChild(gaScript);
+
+
+    /*
+     * Configuración inicial de Google Analytics.
+     */
+
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', MEASUREMENT_ID);
+
+
+    /* =========================================================
+       FUNCIÓN REUTILIZABLE PARA EVENTOS
+       ========================================================= */
+
+    /*
+     * Todos los eventos personalizados pasan por esta función.
+     * El evento se envía a GA4 y también se imprime en consola
+     * para facilitar pruebas y depuración.
+     */
+
+    function trackEvent(nombre, parametros = {}) {
+
+      console.log('[GA4 EVENT]', nombre, parametros);
+
+      gtag('event', nombre, parametros);
+
+    }
+
+
+    /* =========================================================
+       EVENTO: INTERÉS EN PRODUCTOS
+       ========================================================= */
+
+    /*
+     * Al hacer clic en "Me interesa", buscamos la tarjeta
+     * correspondiente y obtenemos los atributos data-*.
+     */
+
+    const interestButtons =
+      document.querySelectorAll('.interest-button');
+
+    interestButtons.forEach(function (button) {
+
+      button.addEventListener('click', function () {
+
+        const productCard =
+          button.closest('.product-card');
+
+        const productName =
+          productCard.dataset.productName;
+
+        const productCategory =
+          productCard.dataset.productCategory;
+
+
+        trackEvent('product_interest', {
+          product_name: productName,
+          product_category: productCategory
+        });
+
+      });
+
+    });
+
+
+    /* =========================================================
+       FORMULARIO
+       ========================================================= */
+
+    const quoteForm =
+      document.getElementById('quote-form');
+
+    const confirmationMessage =
+      document.getElementById('confirmation-message');
+
+
+    /*
+     * Variable para asegurarnos de que form_start se envíe
+     * únicamente la primera vez que el usuario interactúa
+     * con un campo del formulario.
+     */
+
+    let formStarted = false;
+
+
+    /*
+     * Detectamos el primer clic en cualquier input o select.
+     */
+
+    quoteForm.addEventListener('click', function (event) {
+
+      const clickedField =
+        event.target.matches('input, select');
+
+      if (clickedField && !formStarted) {
+
+        formStarted = true;
+
+        trackEvent('form_start', {
+          form_name: 'quote_form'
+        });
+
+      }
+
+    });
+
+
+    /*
+     * Al enviar el formulario:
+     *
+     * 1. Evitamos el envío real.
+     * 2. Obtenemos los campos permitidos.
+     * 3. Enviamos quote_request.
+     * 4. Mostramos confirmación.
+     *
+     * No se envían datos como nombre, teléfono o correo.
+     */
+
+    quoteForm.addEventListener('submit', function (event) {
+
+      event.preventDefault();
+
+
+      const eventType =
+        document.getElementById('event-type').value;
+
+      const attendeeRange =
+        document.getElementById('attendees').value;
+
+      const city =
+        document.getElementById('city').value.trim();
+
+
+      trackEvent('quote_request', {
+        event_type: eventType,
+        attendee_range: attendeeRange,
+        city: city
+      });
+
+
+      confirmationMessage.style.display = 'block';
+
+
+      /*
+       * Desplazamos suavemente hacia la confirmación.
+       */
+
+      confirmationMessage.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+
+    });
+
+
+    /* =========================================================
+       YOUTUBE IFRAME PLAYER API
+       ========================================================= */
+
+    /*
+     * Cargamos la API oficial de YouTube.
+     */
+
+    const youtubeApiScript =
+      document.createElement('script');
+
+    youtubeApiScript.src =
+      'https://www.youtube.com/iframe_api';
+
+    document.head.appendChild(youtubeApiScript);
+
+
+    /*
+     * Variables del reproductor.
+     */
+
+    let player;
+
+    let videoTitle = 'Video Esencia Ambiental';
+
+    let progressInterval = null;
+
+
+    /*
+     * Guardamos los porcentajes ya enviados durante
+     * la reproducción actual.
+     */
+
+    let reachedProgress = {
+      25: false,
+      50: false,
+      75: false
+    };
+
+
+    /*
+     * YouTube llama automáticamente a esta función cuando
+     * la API está lista.
+     */
+
+    function onYouTubeIframeAPIReady() {
+
+      player = new YT.Player('youtube-player', {
+
+        videoId: VIDEO_ID,
+
+        playerVars: {
+          rel: 0,
+          modestbranding: 1
+        },
+
+        events: {
+          onReady: onPlayerReady,
+          onStateChange: onPlayerStateChange
+        }
+
+      });
+
+    }
+
+
+    /* =========================================================
+       VIDEO LISTO
+       ========================================================= */
+
+    function onPlayerReady(event) {
+
+      /*
+       * Intentamos obtener el título real del video.
+       */
+
+      try {
+
+        const videoData =
+          event.target.getVideoData();
+
+        if (videoData && videoData.title) {
+          videoTitle = videoData.title;
+        }
+
+      } catch (error) {
+
+        console.log(
+          'No fue posible obtener el título del video todavía.'
+        );
+
+      }
+
+    }
+
+
+    /* =========================================================
+       CAMBIOS DE ESTADO DEL VIDEO
+       ========================================================= */
+
+    function onPlayerStateChange(event) {
+
+      /*
+       * YT.PlayerState.PLAYING = el video está reproduciéndose.
+       */
+
+      if (event.data === YT.PlayerState.PLAYING) {
+
+        /*
+         * Obtenemos el título nuevamente por si no estaba
+         * disponible cuando el reproductor quedó listo.
+         */
+
+        try {
+
+          const videoData =
+            player.getVideoData();
+
+          if (videoData && videoData.title) {
+            videoTitle = videoData.title;
+          }
+
+        } catch (error) {
+
+          console.log(
+            'No fue posible actualizar el título del video.'
+          );
+
+        }
+
+
+        /*
+         * Consideramos una nueva reproducción cuando el video
+         * comienza prácticamente desde el inicio.
+         *
+         * Esto reinicia los hitos 25/50/75 para que puedan
+         * volver a medirse en una nueva reproducción.
+         */
+
+        const currentTime =
+          player.getCurrentTime();
+
+        if (currentTime <= 1) {
+
+          reachedProgress = {
+            25: false,
+            50: false,
+            75: false
+          };
+
+
+          trackEvent('video_start', {
+            video_title: videoTitle
+          });
+
+        }
+
+
+        /*
+         * Iniciamos la revisión del progreso.
+         */
+
+        startProgressTracking();
+
+      }
+
+
+      /*
+       * Si el video está pausado, dejamos de consultar
+       * temporalmente el progreso.
+       */
+
+      if (event.data === YT.PlayerState.PAUSED) {
+
+        stopProgressTracking();
+
+      }
+
+
+      /*
+       * Cuando el video termina:
+       *
+       * - detenemos el seguimiento;
+       * - enviamos video_complete.
+       */
+
+      if (event.data === YT.PlayerState.ENDED) {
+
+        stopProgressTracking();
+
+
+        trackEvent('video_complete', {
+          video_title: videoTitle
+        });
+
+      }
+
+    }
+
+
+    /* =========================================================
+       SEGUIMIENTO DEL PROGRESO DEL VIDEO
+       ========================================================= */
+
+    function startProgressTracking() {
+
+      /*
+       * Evitamos crear múltiples intervalos si el usuario
+       * pausa y vuelve a reproducir rápidamente.
+       */
+
+      stopProgressTracking();
+
+
+      progressInterval = setInterval(function () {
+
+        if (!player) {
+          return;
+        }
+
+
+        const duration =
+          player.getDuration();
+
+        const currentTime =
+          player.getCurrentTime();
+
+
+        if (!duration || duration <= 0) {
+          return;
+        }
+
+
+        const percent =
+          (currentTime / duration) * 100;
+
+
+        /*
+         * Revisamos cada hito.
+         *
+         * Cada porcentaje solamente puede enviarse una vez
+         * durante la reproducción actual.
+         */
+
+        [25, 50, 75].forEach(function (milestone) {
+
+          if (
+            percent >= milestone &&
+            !reachedProgress[milestone]
+          ) {
+
+            reachedProgress[milestone] = true;
+
+
+            trackEvent('video_progress', {
+              video_title: videoTitle,
+              video_percent: milestone
+            });
+
+          }
+
+        });
+
+      }, 1000);
+
+    }
+
+
+    /*
+     * Detiene el intervalo que revisa el progreso.
+     */
+
+    function stopProgressTracking() {
+
+      if (progressInterval) {
+
+        clearInterval(progressInterval);
+
+        progressInterval = null;
+
+      }
+
+    }
+
+  </script>
+
+</body>
+</html>
